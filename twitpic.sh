@@ -21,12 +21,12 @@ HTML_OUT=$PREFIX-all-$RUN_DATE.html
 
 # Checks the user-supplied arguments
 if [ -z "$TP_NAME" ]; then
-  echo "You must supply a TP_NAME."
+  echo "You must supply a account name. e.g. if it's @coolguy, supply coolguy."
   exit
 fi
 
 if [ ! -d "$WORKING_DIR" ]; then
-  echo "You must supply a WORKING_DIR."
+  echo "You must supply a WORKING_DIR. Please make sure it's created first."
   exit
 fi
 
