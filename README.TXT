@@ -1,3 +1,11 @@
+Twitpic Backup Script modified by Ing-Long Kuo
+=======================================
+Usage
+twitpic.sh <username> <savedir>
+
+
+*Original readme below*
+
 Twitpic Backup Script -- Stan Schwertly
 =======================================
 
