@@ -52,7 +52,7 @@ while [ $MORE -ne 0 ]; do
   echo PAGE: $PAGE
   FILENAME="html/$PREFIX-page-$PAGE.html"
   if [ ! -f "$FILENAME" ]; then
-	wget "http://twitpic.com/photos/${TP_NAME}?page=$PAGE" -O $FILENAME
+	wget -t 0 "http://twitpic.com/photos/${TP_NAME}?page=$PAGE" -O $FILENAME
   fi
   if [ -z "`grep ">Next<" $FILENAME`" ]; then
 	MORE=0
@@ -75,7 +75,7 @@ for ID in $ALL_IDS; do
   echo "Processing $ID..."
   FULL_HTML="html/$PREFIX-$ID-full.html"
   if [ ! -f "$FULL_HTML" ]; then
-	wget http://twitpic.com/$ID/full -O $FULL_HTML
+	wget -t 0 http://twitpic.com/$ID/full -O $FULL_HTML
   fi
 
   FULL_URL=`grep "<img src" $FULL_HTML | grep -Eo "src=\"[^\"]*\"" | grep -Eo "https://[^\"]*"`
@@ -87,7 +87,7 @@ for ID in $ALL_IDS; do
 	fi
 	FULL_FILE=$PREFIX-$ID-full$EXT
 	if [ ! -f "images/$FULL_FILE" ]; then
-	  wget "$FULL_URL" -O "images/$FULL_FILE"
+	  wget -t 0 "$FULL_URL" -O "images/$FULL_FILE"
 	fi
   fi
 done
