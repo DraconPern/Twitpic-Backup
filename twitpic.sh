@@ -52,7 +52,7 @@ while [ $MORE -ne 0 ]; do
   echo PAGE: $PAGE
   FILENAME="html/$PREFIX-page-$PAGE.html"
   if [ ! -f "$FILENAME" ]; then
-	wget http://twitpic.com/photos/${TP_NAME}?page=$PAGE -O $FILENAME
+	wget "http://twitpic.com/photos/${TP_NAME}?page=$PAGE" -O $FILENAME
   fi
   if [ -z "`grep ">Next<" $FILENAME`" ]; then
 	MORE=0
